@@ -1,5 +1,5 @@
 {
-    "name": "Galaxy Journey DELUXE",
+    "name": "Galaxy Journey DELUXE v1.2",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -26,5 +26,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "pyprj"
 }

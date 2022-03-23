@@ -201,6 +201,11 @@ Level = 1
 game.set_score(0)
 
 def on_forever():
+    if evil_spaceship.get(LedSpriteProperty.X) == other_spaceship.get(LedSpriteProperty.X):
+        other_spaceship.set(LedSpriteProperty.X, randint(0, 4))
+basic.forever(on_forever)
+
+def on_forever2():
     if sprite.is_touching(evil_spaceship):
         Life_counter()
     if evil_spaceship.is_touching(lazer):
@@ -210,9 +215,9 @@ def on_forever():
     if evil_spaceship.get(LedSpriteProperty.Y) == 4:
         evil_spaceship.set(LedSpriteProperty.X, randint(0, 4))
         evil_spaceship.set(LedSpriteProperty.Y, 0)
-basic.forever(on_forever)
+basic.forever(on_forever2)
 
-def on_forever2():
+def on_forever3():
     global Level, Lives, Setting
     if True:
         if game.score() >= 20:
@@ -241,9 +246,9 @@ def on_forever2():
         if game.score() >= 1000:
             Level = 11
             Setting = False
-basic.forever(on_forever2)
+basic.forever(on_forever3)
 
-def on_forever3():
+def on_forever4():
     if sprite.is_touching(other_spaceship):
         Life_counter()
     if other_spaceship.is_touching(lazer):
@@ -253,26 +258,26 @@ def on_forever3():
     if other_spaceship.get(LedSpriteProperty.Y) == 4:
         other_spaceship.set(LedSpriteProperty.X, randint(0, 4))
         other_spaceship.set(LedSpriteProperty.Y, 0)
-basic.forever(on_forever3)
-
-def on_forever4():
-    for index2 in range(5):
-        evil_spaceship.change(LedSpriteProperty.Y, 1)
-        basic.pause(500)
 basic.forever(on_forever4)
 
 def on_forever5():
-    for index3 in range(5):
-        other_spaceship.change(LedSpriteProperty.Y, 1)
+    for index2 in range(5):
+        evil_spaceship.change(LedSpriteProperty.Y, 1)
         basic.pause(500)
 basic.forever(on_forever5)
 
 def on_forever6():
-    if False:
-        Boss_Fight()
+    for index3 in range(5):
+        other_spaceship.change(LedSpriteProperty.Y, 1)
+        basic.pause(500)
 basic.forever(on_forever6)
 
 def on_forever7():
+    if False:
+        Boss_Fight()
+basic.forever(on_forever7)
+
+def on_forever8():
     global Boss_lives
     if False:
         if lazer.is_touching(Leader_spaceship):
@@ -289,4 +294,4 @@ def on_forever7():
             evil_spaceship.delete()
             Leader_spaceship.delete()
             Cutscene()
-basic.forever(on_forever7)
+basic.forever(on_forever8)
